@@ -1,0 +1,44 @@
+server:
+  port: 8089
+  session:
+    cookie:
+      name: SSID
+  tomcat:
+    remote-ip-header: X-Forwarded-For
+    protocol-header: X-Forwarded-Proto
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+spring:
+  messages:
+    basename: i18n/messages
+  mvc:
+    locale: zh_CN
+    date-format: yyyy-MM-dd
+  jackson:
+    serialization:
+      indent-output: true
+      write-dates-as-timestamps: false
+  activemq:
+    broker-url: tcp://localhost:61616  ## 要开启activeMq服务才有效
+    in-memory: true
+    password: 123
+    user: 123
+    packages:
+      trust-all: false # Trust all packages.
+#      trusted:
+security:
+  basic:
+    enabled: false
+multipart:
+  max-file-size: 2MB
+  max-request-size: 10MB
+  file-size-threshold: 0
+management:
+  security:
+    enabled: false
+  context-path: /manage
+logging:
+  file: activeMQ.log
+  level:
+    com.test: INFO
