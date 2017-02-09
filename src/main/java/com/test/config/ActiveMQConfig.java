@@ -26,7 +26,7 @@ import javax.jms.Queue;
 public class ActiveMQConfig {
 
     @Bean
-    public ConnectionFactory connectionFactory(){ //customize connectionFactory
+    public ConnectionFactory connectionFactory(){ //customize connectionFactory  注释掉就采用springboot配置的activemq
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("admin","admin","tcp://localhost:61616");
         connectionFactory.setMaxThreadPoolSize(10);
         connectionFactory.setUseAsyncSend(true);
